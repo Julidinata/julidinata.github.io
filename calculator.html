@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator - My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="#" class="flex items-center py-4">
+                            <span class="font-semibold text-gray-500 text-lg">Portfolio</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="index.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Home</a>
+                    <a href="projects.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Projects</a>
+                    <a href="calculator.html" class="py-4 px-2 text-primary border-b-4 border-primary font-semibold">Calculator</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class="w-6 h-6 text-gray-500 hover:text-primary"
+                            fill="none" stroke-linecap="round" 
+                            stroke-linejoin="round" stroke-width="2" 
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden mobile-menu md:hidden">
+            <ul class="">
+                <li><a href="index.html" class="block text-sm px-2 py-4 hover:bg-primary/10 transition duration-300">Home</a></li>
+                <li><a href="projects.html" class="block text-sm px-2 py-4 hover:bg-primary/10 transition duration-300">Projects</a></li>
+                <li><a href="calculator.html" class="block text-sm px-2 py-4 text-primary bg-primary/10 font-semibold">Calculator</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Calculator Section -->
+    <div class="pt-24 pb-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                <!-- Calculator Display -->
+                <div class="p-4 bg-gray-800">
+                    <input type="text" id="display" class="w-full text-right text-3xl bg-gray-800 text-white" readonly value="0">
+                </div>
+                <!-- Calculator Buttons -->
+                <div class="p-4 grid grid-cols-4 gap-2">
+                    <!-- Row 1 -->
+                    <button class="calc-btn col-span-2 bg-red-500 hover:bg-red-600 text-white py-2 rounded">AC</button>
+                    <button class="calc-btn bg-gray-300 hover:bg-gray-400 py-2 rounded">DEL</button>
+                    <button class="calc-btn operator bg-blue-500 hover:bg-blue-600 text-white py-2 rounded">/</button>
+                    <!-- Row 2 -->
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">7</button>
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">8</button>
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">9</button>
+                    <button class="calc-btn operator bg-blue-500 hover:bg-blue-600 text-white py-2 rounded">*</button>
+                    <!-- Row 3 -->
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">4</button>
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">5</button>
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">6</button>
+                    <button class="calc-btn operator bg-blue-500 hover:bg-blue-600 text-white py-2 rounded">-</button>
+                    <!-- Row 4 -->
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">1</button>
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">2</button>
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">3</button>
+                    <button class="calc-btn operator bg-blue-500 hover:bg-blue-600 text-white py-2 rounded">+</button>
+                    <!-- Row 5 -->
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">00</button>
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">0</button>
+                    <button class="calc-btn number bg-gray-200 hover:bg-gray-300 py-2 rounded">.</button>
+                    <button class="calc-btn equals bg-green-500 hover:bg-green-600 text-white py-2 rounded">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white mt-auto">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-primary">LinkedIn</a>
+                    <a href="#" class="hover:text-primary">GitHub</a>
+                    <a href="#" class="hover:text-primary">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Mobile menu toggle
+            $('.mobile-menu-button').click(function() {
+                $('.mobile-menu').slideToggle();
+            });
+
+            let display = $('#display');
+            let currentNumber = '0';
+            let previousNumber = '';
+            let operation = null;
+            let newNumber = true;
+
+            // Number button click
+            $('.number').click(function() {
+                let num = $(this).text();
+                if (newNumber) {
+                    currentNumber = num;
+                    newNumber = false;
+                } else {
+                    if (num === '.' && currentNumber.includes('.')) return;
+                    currentNumber += num;
+                }
+                display.val(currentNumber);
+            });
+
+            // Operator button click
+            $('.operator').click(function() {
+                if (operation !== null) {
+                    calculate();
+                }
+                previousNumber = currentNumber;
+                operation = $(this).text();
+                newNumber = true;
+            });
+
+            // Equals button click
+            $('.equals').click(calculate);
+
+            // AC button click
+            $('.calc-btn:contains("AC")').click(function() {
+                currentNumber = '0';
+                previousNumber = '';
+                operation = null;
+                newNumber = true;
+                display.val('0');
+            });
+
+            // DEL button click
+            $('.calc-btn:contains("DEL")').click(function() {
+                if (currentNumber.length > 1) {
+                    currentNumber = currentNumber.slice(0, -1);
+                } else {
+                    currentNumber = '0';
+                }
+                display.val(currentNumber);
+            });
+
+            function calculate() {
+                if (!operation) return;
+                
+                let prev = parseFloat(previousNumber);
+                let current = parseFloat(currentNumber);
+                let result;
+
+                switch(operation) {
+                    case '+':
+                        result = prev + current;
+                        break;
+                    case '-':
+                        result = prev - current;
+                        break;
+                    case '*':
+                        result = prev * current;
+                        break;
+                    case '/':
+                        if (current === 0) {
+                            result = 'Error';
+                        } else {
+                            result = prev / current;
+                        }
+                        break;
+                }
+
+                currentNumber = result.toString();
+                operation = null;
+                newNumber = true;
+                display.val(currentNumber);
+            }
+        });
+    </script>
+</body>
+</html>
